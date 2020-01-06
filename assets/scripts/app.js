@@ -7,5 +7,8 @@ const events = require('./events')
 // require('./example')
 
 $(() => {
+  $('#game-board').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
   events.addHandlers()
 })
