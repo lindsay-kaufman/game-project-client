@@ -1,12 +1,33 @@
 'use strict'
 
-const board = new Array(9)
-const xSpaces = new Array(9)
-const oSpaces = new Array(9)
+let board = new Array(9)
+let xSpaces = new Array(9)
+let oSpaces = new Array(9)
 let player = true
 
-// for loop less than 8
-// space.text('X')
+// hide button until user is signed in
+const startNewGame = function () {
+  $('#new-game').on('click', event => {
+    console.log('Start new game')
+    $('#game-board').show()
+    player = true
+    $('#current-player').text('X is up!')
+    board = new Array(9)
+    xSpaces = new Array(9)
+    oSpaces = new Array(9)
+  })
+}
+
+/*
+
+TO DO
+
+find winner or draw
+toggle between current uesr message
+display message of user feedback after each click
+
+*/
+
 const playGame = function (space) {
   space = event.target
   $(space).on('click', event => {
@@ -25,6 +46,7 @@ const playGame = function (space) {
         console.log('X is up!')
       }
       player = !player
+      console.log(player)
     } else {
       console.log('Space is invalid')
     }
@@ -50,6 +72,7 @@ const addHandlers = function () {
   $('#6').on('click', playGame)
   $('#7').on('click', playGame)
   $('#8').on('click', playGame)
+  $('#new-game').on('click', startNewGame)
 }
 
 module.exports = {
