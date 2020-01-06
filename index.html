@@ -1,17 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+
+
+  <p id="message"></p>
+  <form id="sign-up">
+    <fieldset>
+      <legend>Sign Up</legend>
+      <input name="credentials[email]" type="email" placeholder="Email">
+      <input name="credentials[password]" type="password" placeholder="Password">
+      <input name="credentials[password]" type="password" placeholder="Confirm Password">
+      <input type="submit" value="Sign Up!">
+    </fieldset>
+  </form>
+
+  <form id="sign-in">
+    <fieldset>
+      <legend>Sign In</legend>
+      <input name="credentials[email]" type="email" placeholder="Email">
+      <input name="credentials[password]" type="password" placeholder="Password">
+      <input type="submit" value="Sign In!">
+    </fieldset>
+  </form>
+
+  <br><br>
+
+  <div class="container">
+  <div class="row">
+    <div class="col-4 box" id="0">zero</div>
+    <div class="col-4 box" id="1">one</div>
+    <div class="col-4 box" id="2">two</div>
+
+
+    <div class="col-4 box" id="3">three</div>
+    <div class="col-4 box" id="4">four</div>
+    <div class="col-4 box" id="5">five</div>
+
+    <div class="col-4 box" id="6">six</div>
+    <div class="col-4 box" id="7">seven</div>
+    <div class="col-4 box" id="8">eight</div>
+  </div>
+</div>
+
+<br><br>
+
+  <form id="change-password">
+    <fieldset>
+      <legend>Change Password</legend>
+      <input name="password[old]" type="password" placeholder="Old Password">
+      <input name="password[new]" type="password" placeholder="New Password">
+      <input type="submit" value="Submut">
+    </fieldset>
+  </form>
+
+  <form id="sign-out">
+    <fieldset>
+      <input type="submit" value="Sign Out">
+    </fieldset>
+  </form>
+
+</body>
+
 </html>
