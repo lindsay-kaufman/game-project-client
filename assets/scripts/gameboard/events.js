@@ -11,22 +11,12 @@ const startNewGame = function () {
     console.log('Start new game')
     $('#game-board').show()
     player = true
-    $('#current-player').text('X is up!')
+    $('#current-player').text('Current player: X')
     board = new Array(9)
     xSpaces = new Array(9)
     oSpaces = new Array(9)
   })
 }
-
-/*
-
-TO DO
-
-find winner or draw
-toggle between current uesr message
-display message of user feedback after each click
-
-*/
 
 const playGame = function (space) {
   space = event.target
@@ -37,18 +27,23 @@ const playGame = function (space) {
         xSpaces[space.id] = 'X'
         board[space.id] = 'X'
         console.log('X array: ' + xSpaces)
-        console.log('O is up!')
+        // console.log('O is up!')
+        $('#current-player').text('Current Player: O')
+        $('#message').text('Nice move X!')
       } else {
         $(space).text('O')
         oSpaces[space.id] = 'O'
         board[space.id] = 'O'
         console.log('O array: ' + oSpaces)
-        console.log('X is up!')
+        // console.log('X is up!')
+        $('#current-player').text('Current Player: X')
+        $('#message').text('Nice move O!')
       }
       player = !player
-      console.log(player)
+      // console.log(player)
     } else {
-      console.log('Space is invalid')
+      // console.log('Space is invalid')
+      $('#message').text('Oops! That space is already taken.')
     }
   })
 }
