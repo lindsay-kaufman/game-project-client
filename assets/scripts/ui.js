@@ -6,7 +6,7 @@ const signUpSuccessful = function (response) {
   $('#message').text('Successfully signed up!')
   console.log(response)
 
-  $('#game-board').show()
+  // $('#game-board').show()
   $('#change-password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
@@ -25,7 +25,7 @@ const signInSuccessful = function (response) {
   // store user token
   store.user = response.user
 
-  $('#game-board').show()
+  // $('#game-board').show()
   $('#change-password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
