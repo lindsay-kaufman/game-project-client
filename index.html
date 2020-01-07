@@ -14,72 +14,84 @@
 </head>
 
 <body>
-    <h1>Tic Tac Toe</h1>
+  <h1>Tic Tac Toe</h1>
+
+  <br><br>
 
 
-  <form id="sign-up">
-    <fieldset>
-      <legend>Sign Up</legend>
-      <input name="credentials[email]" type="email" placeholder="Email">
-      <input name="credentials[password]" type="password" placeholder="Password">
-      <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-      <input type="submit" value="Sign Up!">
-    </fieldset>
-  </form>
+    <form class="input-group justify-content-center" id="sign-up">
+      <fieldset>
+        <legend>Sign Up</legend>
+        <input name="credentials[email]" type="email" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+        <input type="submit" class="btn btn-outline-secondary" value="Sign Up!">
+      </fieldset>
+    </form>
 
-  <form id="sign-in">
-    <fieldset>
-      <legend>Sign In</legend>
-      <input name="credentials[email]" type="email" placeholder="Email">
-      <input name="credentials[password]" type="password" placeholder="Password">
-      <input type="submit" value="Sign In!">
-    </fieldset>
-  </form>
+    <form class="input-group justify-content-center" id="sign-in">
+      <fieldset>
+        <legend>Sign In</legend>
+        <input name="credentials[email]" type="email" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <input type="submit" class="btn btn-outline-secondary" value="Sign In!">
+      </fieldset>
+    </form>
+
+
+  <br><br>
+
+  <div class="container justify-content-center" id="game-board">
+    <div class="row">
+      <div class="col-5 float-left" id="current-player"></div>
+      <div class="col-5" id="game-status"></div>
+      <div class="col-5 float-right" id="message"></div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-4 border-top-0 border-left-0 box space" id="0"></div>
+      <div class="col-4 border-top-0 box space" id="1"></div>
+      <div class="col-4 border-top-0 border-right-0 box space" id="2"></div>
+
+      <div class="col-4 border-left-0 box space" id="3"></div>
+      <div class="col-4 box space" id="4"></div>
+      <div class="col-4 border-right-0 box space" id="5"></div>
+
+      <div class="col-4 border-bottom-0 border-left-0 box space" id="6"></div>
+      <div class="col-4 border-bottom-0 box space" id="7"></div>
+      <div class="col-4 border-bottom-0 border-right-0 box space" id="8"></div>
+    </div>
+  </div>
+
+  <div data-cell-index="index"></div>
 
   <br><br>
 
   <div>
-    <button id="new-game" type="button">New Game</button>
+    <button class="btn btn-outline-secondary justify-content-center" id="new-game" type="button">New Game</button>
   </div>
 
-  <div class="container" id="game-board">
-    <div class="row">
-        <div class="col-5" id="current-player"></div>
-        <div class="col-5" id="message"></div>
-    </div>
-
-  <div class="row">
-    <div class="col-4 box" id="0"></div>
-    <div class="col-4 box" id="1"></div>
-    <div class="col-4 box" id="2"></div>
+  <br><br><br>
 
 
-    <div class="col-4 box" id="3"></div>
-    <div class="col-4 box" id="4"></div>
-    <div class="col-4 box" id="5"></div>
-
-    <div class="col-4 box" id="6"></div>
-    <div class="col-4 box" id="7"></div>
-    <div class="col-4 box" id="8"></div>
-  </div>
-</div>
-
-<br><br>
-
-  <form id="change-password">
-    <fieldset>
+  <form class="container justify-content-center" id="change-password">
+    <fieldset class="change-password">
       <legend>Change Password</legend>
       <input name="passwords[old]" type="password" placeholder="Old Password">
       <input name="passwords[new]" type="password" placeholder="New Password">
-      <input type="submit" value="Submit">
+      <input class="btn btn-outline-secondary" type="submit" value="Submit">
     </fieldset>
   </form>
 
-  <form id="sign-out">
+  <br><br><br>
+
+  <form class="container justify-content-center" id="sign-out">
     <fieldset>
-      <input type="button" value="Sign Out">
+      <input class="btn btn-outline-secondary justify-content-center" type="button" value="Sign Out">
     </fieldset>
   </form>
+
 
 </body>
 

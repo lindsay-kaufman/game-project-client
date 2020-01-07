@@ -1,10 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 
+h1 {
+  text-align: center;
+}
+
+legend {
+  text-align: center;
+  font-size: 20px;
+}
+
+.change-password {
+  justify-content: center;
+}
+
 .box {
   border: 1px solid #000000;
-  background-color: #808080;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   display: flex;
   height: 80px;
   justify-content: center;
+  text-align: center;
+  font-size: 50px;
 }
