@@ -9,9 +9,12 @@ const gameEvents = require('./gameboard/events.js')
 
 $(() => {
   $('#new-game').hide()
+  $('#winner-alert').hide()
   $('#get-games').hide()
+  $('#hide-games').hide()
   $('#game-board').hide()
   $('#change-password').hide()
+  $('#play-again').hide()
   $('#sign-out').hide()
   events.addHandlers()
   gameEvents.addHandlers()

@@ -5,13 +5,13 @@ const store = require('./store')
 const signUpSuccessful = function (response) {
   console.log('Sign up successful')
   console.log(response)
-
+  $('#signup-message').hide()
   $('#sign-up').hide()
 }
 
 const signUpFailure = function (error) {
-  console.log('Sign up failed')
   console.log(error)
+  $('#signup-message').html('Oops! Try again.')
 }
 
 const signInSuccessful = function (response) {
@@ -37,11 +37,19 @@ const signInFailure = function (response) {
 const changePasswordSuccessful = function (response) {
   console.log('Change password successful')
   console.log(response)
+  $('#password-message').html('Your password has been changed!')
+  $('#change-password').each(function () {
+    this.reset()
+  })
 }
 
 const changePasswordFailure = function (error) {
   console.log('Change password failed')
   console.log(error)
+  $('#password-message').html('Old password incorrect. Try again.')
+  $('#change-password').each(function () {
+    this.reset()
+  })
 }
 
 const signOutSuccessful = function () {

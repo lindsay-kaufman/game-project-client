@@ -1,18 +1,21 @@
 'use strict'
 
 const store = require('./../store')
-const winner = require('./events')
 
-// createGameSuccessful function:
-// creates new game object in server
-// stores the object
 const createGameSuccessful = function (board) {
-  console.log('Game created')
+  // console.log('Game created')
   store.game = board.game
   for (let i = 0; i < board.game.cells.length; i++) {
     const space = $('#' + i) // = 0
     space.html('')
   }
+  $('#game-board').show()
+  $('#play-again').hide()
+  $('#current-player').show().html('Current Player: X')
+  $('#message').show().html('Click Any Space') // BUG not showing after there is a winner
+  $('#winner-alert').hide()
+  $('#game-status').hide()
+  $('#password-message').hide()
 }
 
 const createGameFailed = function (error) {
@@ -24,17 +27,13 @@ const createGameFailed = function (error) {
 // updates the game object 'cells' key in JSON
 // then updates the game board from the DOM
 // updates the game 'over' key
-const updateGameSuccessful = function (board) {
-  console.log(board)
-  for (let i = 0; i < board.game.cells.length; i++) {
-    const value = board.game.cells[i] // = x
-    const space = $('#' + i) // = 0
-    space.html(value)
-  }
-  if (winner.checkWinner === true) {
-    board.game.over = true
-    console.log('Final board: ' + board)
-  }
+const updateGameSuccessful = function (res, index, player) {
+  console.log(res)
+  const space = $('#' + index) // = index
+  console.log('i is ', index)
+  console.log('value is ', player)
+  $('#message').html('Nice Move ' + player + '!')
+  space.html(player)
 }
 
 const updateGameFailed = function (error) {
@@ -53,6 +52,9 @@ const getGamesSuccessful = function (history) {
     gameCount += 1
     return gameCount
   })
+  $('#get-games').hide()
+  $('#hide-games').show()
+  $('#game-stats').show()
   $('#game-stats').html('Number of completed games: ' + gameCount + '<br>' + gameList)
 }
 

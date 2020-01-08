@@ -2,11 +2,7 @@
 //
 // TO DO:
 // -need to hide new game button until user is signed in
-// -fix bug inside newGame
-// -fix get games bug
-// -make button to hide user stats
-// -bug: if invalid space is clicked message does not change for remainder of game
-// if game over add message asking to play again
+// -BUG: clicking on a container div not on the board returns an error message
 
 const api = require('./../api')
 const ui = require('./ui')
@@ -16,17 +12,18 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 let moves = 0
 
+// counts number of moves to check for draw
+const moveCount = function () {
+  moves++
+  console.log('Moves: ' + moves)
+  return moves
+}
+
 const newGame = function (event) {
   event.preventDefault()
   api.createGameObject()
     .then(ui.createGameSuccessful)
     .catch(ui.createGameFailed)
-
-  $('#game-board').show()
-  $('#game-stats').hide()
-  // BUG: why is this not appearing after there is a winner
-  $('#current-player').html('Current player: X')
-  $('#message').html('')
 
   player = true
   board = ['', '', '', '', '', '', '', '', '']
@@ -34,15 +31,16 @@ const newGame = function (event) {
   moves = 0
 }
 
-const updateGame = function (index, value, over) {
+const updateGame = function (index, player, over) {
   event.preventDefault()
 
-  api.updateGameObject(index, value, over)
-    .then(ui.updateGameSuccessful)
+  api.updateGameObject(index, player, over)
+    .then(res => {
+      ui.updateGameSuccessful(res, index, player)
+    })
     .catch(ui.updateGameFailed)
 }
 
-// bug: cannot view games after clicking new game
 const getGames = function (event) {
   event.preventDefault()
   api.getGameStats()
@@ -50,9 +48,12 @@ const getGames = function (event) {
     .catch(ui.getGamesFailed)
 }
 
-// checkWinner function:
-// * checks if winning combinations are valid and equal to each other
-// * returns true if a winner is found
+const hideGames = function () {
+  $('#game-stats').hide()
+  $('#get-games').show()
+  $('#hide-games').hide()
+}
+
 const checkWinner = function () {
   // console.log(board)
   if (board[0] !== '' && board[0] === board[1] && board[1] === board[2]) {
@@ -82,13 +83,6 @@ const checkWinner = function () {
   }
 }
 
-// checks for draw
-const moveCount = function () {
-  moves++
-  console.log('Moves: ' + moves)
-  return moves
-}
-
 // playGame function:
 // * determins if game is over and stops game board from changing if game is over
 // * stops user from clicking on invalid space
@@ -102,39 +96,46 @@ const playGame = function (event) {
 
   // make sure game is not over
   if (gameOver === true) {
-    return $('#game-status').text('Game over!')
+    return $('#game-status').html('Game Over!')
   }
 
   // make sure space is valid
   if (board[space.id] !== '') {
-    return $('#message').text('Oops! That space is already taken.')
+    console.log('ID: ' + space.id)
+    return $('#message').html('Oops! That is not a valid move.')
   }
 
-  if (moves === 9) {
-    // if (!checkWinner) {
-    gameOver = !gameOver
-    $('#message').text('Draw!')
-    console.log('Draw')
+  if (!checkWinner()) {
+    if (moves === 9) {
+      $('#game-status').show().html('Tie Game!')
+      $('#message').hide()
+      $('#current-player').hide()
+      $('#play-again').show()
+      console.log('Draw')
+    }
   }
-  // }
 
   if (player === true) {
     spaceValue = 'X'
     board[space.id] = 'X'
-    // console.log('Game board: ' + board)
+    $('#current-player').text('Current Player: O')
     if (checkWinner() === true) {
-      $('#message').text('X is the winner!')
+      $('#winner-alert').show().html('X Is The Winner!')
       $('#current-player').hide()
+      $('#play-again').show()
+      $('#message').hide()
       gameOver = !gameOver
     }
   } else {
     spaceValue = 'O'
     board[space.id] = 'O'
-    // console.log('Game board: ' + board)
+    $('#current-player').text('Current Player: X')
     if (checkWinner() === true) {
       gameOver = !gameOver
-      $('#message').text('O is the winner!')
+      $('#winner-alert').show().html('O Is The Winner!')
+      $('#play-again').show()
       $('#current-player').hide()
+      $('#message').hide()
     }
   }
 
@@ -153,6 +154,7 @@ const addHandlers = function () {
   $('#game-board').on('click', playGame)
   $('#new-game').on('click', newGame)
   $('#get-games').on('click', getGames)
+  $('#hide-games').on('click', hideGames)
 }
 
 module.exports = {
