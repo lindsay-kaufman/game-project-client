@@ -22,6 +22,7 @@ const signInSuccessful = function (response) {
   store.user = response.user
 
   $('#new-game').show()
+  $('#get-games').show()
   $('#change-password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
@@ -50,8 +51,10 @@ const signOutSuccessful = function () {
   })
 
   $('#new-game').hide()
+  $('#get-games').hide()
   $('#game-board').hide()
   $('#change-password').hide()
+  $('#game-stats').hide()
   $('#sign-out').hide()
   $('#sign-up').show()
   $('#sign-in').show()

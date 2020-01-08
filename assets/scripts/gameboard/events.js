@@ -18,10 +18,11 @@ const newGame = function (event) {
     .then(ui.createGameSuccessful)
     .catch(ui.createGameFailed)
 
-  // why is this affecting the checkWinner function
   $('#game-board').show()
-  $('#current-player').text('Current player: X')
-  $('#message').text('')
+  $('#game-stats').hide()
+  // why is this not appearing after there is a winner
+  $('#current-player').html('Current player: X')
+  $('#message').html('')
 
   player = true
   board = new Array(9)
@@ -35,6 +36,15 @@ const updateGame = function (index, value, over) {
   api.updateGameObject(index, value, over)
     .then(ui.updateGameSuccessful)
     .catch(ui.updateGameFailed)
+}
+
+// bug: cannot view games after clicking new game
+// maybe make a hide stats button
+const getGames = function (event) {
+  event.preventDefault()
+  api.getGameStats()
+    .then(ui.getGamesSuccessful)
+    .catch(ui.getGamesFailed)
 }
 
 // checkWinner function:
@@ -94,10 +104,12 @@ const playGame = function (event) {
   const space = event.target
   let spaceValue
 
+  // make sure game is not over
   if (gameOver === true) {
     return $('#game-status').text('Game over!')
   }
 
+  // make sure space is valid
   if (board[space.id] !== undefined) {
     return $('#message').text('Oops! That space is already taken.')
   }
@@ -133,6 +145,7 @@ const playGame = function (event) {
 const addHandlers = function () {
   $('#game-board').on('click', playGame)
   $('#new-game').on('click', newGame)
+  $('#get-games').on('click', getGames)
 }
 
 module.exports = {

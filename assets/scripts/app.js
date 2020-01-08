@@ -8,7 +8,8 @@ const gameEvents = require('./gameboard/events.js')
 // require('./example')
 
 $(() => {
-  // $('#new-game').hide()
+  $('#new-game').hide()
+  $('#get-games').hide()
   $('#game-board').hide()
   $('#change-password').hide()
   $('#sign-out').hide()

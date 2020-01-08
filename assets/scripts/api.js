@@ -9,6 +9,16 @@ const signUp = function (data) {
   })
 }
 
+const getGameStats = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
@@ -74,5 +84,6 @@ module.exports = {
   changePassword,
   signOut,
   createGameObject,
-  updateGameObject
+  updateGameObject,
+  getGameStats
 }
