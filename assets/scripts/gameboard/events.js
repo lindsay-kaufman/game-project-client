@@ -4,106 +4,95 @@ const api = require('./../api')
 const ui = require('./ui')
 
 let player = true
-let board = new Array(9)
-let xSpaces = new Array(9)
-let oSpaces = new Array(9)
 let gameOver = false
-let winner = null
+let board = new Array(9)
 
-// create a guard to not create game if board is empty
 // need to hide button until user is signed in
-// store a game and create new game
-
+// newGame function:
+// * creates a new game in server
+// * resets events.js variables
+// * resets user messages
 const newGame = function (event) {
   event.preventDefault()
-  api.createGame()
+  api.createGameObject()
     .then(ui.createGameSuccessful)
     .catch(ui.createGameFailed)
+
+  // why is this affecting the checkWinner function
+  $('#game-board').show()
+  $('#current-player').text('Current player: X')
+  $('#message').text('')
+
+  player = true
+  board = new Array(9)
+  gameOver = false
 }
 
-// have to write the functions for updateGameSuccessful and updateGameFailed
-// have to write updateGame function in api file
-const updateGame = function (event) {
+// updates the server after each turn and returns updates
+const updateGame = function (index, value, over) {
   event.preventDefault()
-  api.updateGame()
+
+  api.updateGameObject(index, value, over)
     .then(ui.updateGameSuccessful)
     .catch(ui.updateGameFailed)
 }
 
-const resetBoard = function (event) {
-  // console.log('Start new game')
-
-  $('.space').text('')
-  $('#game-board').show()
-  $('#current-player').text('Current player: X')
-  $('#message').text('')
-  player = true
-
-  // reset game object
-  board = new Array(9)
-  xSpaces = new Array(9)
-  oSpaces = new Array(9)
-}
-
-// checkWinnerX and checkWinnerO functions check for winner after each turn
-// playGame function plays the game, pushes moves into game object
-const checkWinnerX = function () {
-  if (xSpaces[0] === 'X' && xSpaces[1] === 'X' && xSpaces[2] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[3] === 'X' && xSpaces[4] === 'X' && xSpaces[5] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[6] === 'X' && xSpaces[7] === 'X' && xSpaces[8] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[0] === 'X' && xSpaces[3] === 'X' && xSpaces[6] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[1] === 'X' && xSpaces[4] === 'X' && xSpaces[7] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[2] === 'X' && xSpaces[5] === 'X' && xSpaces[8] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[0] === 'X' && xSpaces[4] === 'X' && xSpaces[8] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (xSpaces[2] === 'X' && xSpaces[4] === 'X' && xSpaces[6] === 'X') {
-    console.log('Check winner working')
-    return true
-  }
-}
-const checkWinnerO = function () {
-  if (oSpaces[0] === 'O' && oSpaces[1] === 'O' && oSpaces[2] === 'O') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[3] === 'O' && oSpaces[4] === 'O' && oSpaces[5] === 'O') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[6] === 'O' && oSpaces[7] === 'O' && oSpaces[8] === 'O') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[0] === 'O' && oSpaces[3] === 'O' && oSpaces[6] === 'O') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[1] === 'O' && oSpaces[4] === 'O' && oSpaces[7] === 'O') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[2] === 'O' && oSpaces[5] === 'O' && oSpaces[8] === 'O') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[0] === 'O' && oSpaces[4] === 'X' && oSpaces[8] === 'X') {
-    console.log('Check winner working')
-    return true
-  } else if (oSpaces[2] === 'O' && oSpaces[4] === 'O' && oSpaces[6] === 'O') {
-    console.log('Check winner working')
-    return true
+// checkWinner function:
+// * checks if winning combinations are valid and equal to each other
+// * returns true if a winner is found
+const checkWinner = function () {
+  if (board[0] !== undefined && board[1] !== undefined && board[2] !== undefined) {
+    if (board[0] === board[1] && board[1] === board[2]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[3] !== undefined && board[4] !== undefined && board[5] !== undefined) {
+    if (board[3] === board[4] && board[4] === board[5]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[6] !== undefined && board[7] !== undefined && board[8] !== undefined) {
+    if (board[6] === board[7] && board[7] === board[8]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[0] !== undefined && board[3] !== undefined && board[6] !== undefined) {
+    if (board[0] === board[3] && board[3] === board[6]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[1] !== undefined && board[4] !== undefined && board[7] !== undefined) {
+    if (board[1] === board[4] && board[4] === board[7]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[2] !== undefined && board[5] !== undefined && board[8] !== undefined) {
+    if (board[2] === board[5] && board[5] === board[8]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[0] !== undefined && board[4] !== undefined && board[8] !== undefined) {
+    if (board[0] === board[4] && board[4] === board[8]) {
+      console.log('Check winner working')
+      return true
+    }
+  } else if (board[2] !== undefined && board[4] !== undefined && board[6] !== undefined) {
+    if (board[2] === board[4] && board[4] === board[6]) {
+      console.log('Check winner working')
+      return true
+    }
   }
 }
 
+// playGame function:
+// * determins if game is over and stops game board from changing if game is over
+// * stops user from clicking on invalid space
+// * lets player know who's turn it is, toggles player
+// * lets player know who winner is
+// * passes arguments into updateGame function and updates game object in server
 const playGame = function (event) {
   const space = event.target
+  let spaceValue
 
   if (gameOver === true) {
     return $('#game-status').text('Game over!')
@@ -113,56 +102,41 @@ const playGame = function (event) {
     return $('#message').text('Oops! That space is already taken.')
   }
 
-  // player X
   if (player === true) {
-    $(space).text('X')
-    xSpaces[space.id] = 'X'
+    spaceValue = 'X'
     board[space.id] = 'X'
-    console.log('X array: ' + xSpaces)
-    // console.log('Game board: ' + game.board)
-
-    // check X winner after each turn
-    if (checkWinnerX() === true) {
+    console.log('Game board: ' + board)
+    if (checkWinner() === true) {
       $('#message').text('X is the winner!')
       $('#current-player').hide()
-      winner = 'X'
       gameOver = !gameOver
-      console.log('Winner: ' + winner)
-    } else {
-      $('#current-player').text('Current Player: O')
-      $('#message').text('Nice move X!')
     }
-
-    // player O
   } else {
-    $(space).text('O')
-    oSpaces[space.id] = 'O'
+    spaceValue = 'O'
     board[space.id] = 'O'
-    console.log('O array: ' + oSpaces)
-    // console.log('Game board: ' + game.board)
-
-    // check O winner after each turn
-    if (checkWinnerO() === true) {
+    console.log('Game board: ' + board)
+    if (checkWinner() === true) {
+      gameOver = !gameOver
       $('#message').text('O is the winner!')
       $('#current-player').hide()
-      winner = 'O'
-      gameOver = !gameOver
-    } else {
-      $('#current-player').text('Current Player: X')
-      $('#message').text('Nice move O!')
     }
   }
+  // toggle player and update game after each turn
   player = !player
-  updateGame()
+  // console.log(player)
+  // console.log(space.id)
+  // console.log(spaceValue)
+  // console.log(gameOver)
+  updateGame(space.id, spaceValue, gameOver)
 }
 
 const addHandlers = function () {
   $('#game-board').on('click', playGame)
-  $('#new-game').on('click', resetBoard)
   $('#new-game').on('click', newGame)
 }
 
 module.exports = {
   addHandlers,
-  playGame
+  playGame,
+  checkWinner
 }
