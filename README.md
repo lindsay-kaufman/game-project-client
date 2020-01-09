@@ -1,5 +1,6 @@
 # Tic Tac Toe
 
+
 # Planning Story
 In planning this application, I first created some basic wireframes and wrote multiple user stories (below). Next, I wrote down my list of requirements to complete this project and created a schedule to ensure I finished each requirement by the due date.
 
@@ -16,11 +17,15 @@ In planning this application, I first created some basic wireframes and wrote mu
 
 # Technologies Used
 
--HTML/CSS
--Bootstrap
--JavaScript
--jQuery
--Ajax
+- HTML/CSS
+- Bootstrap
+- JavaScript
+- jQuery
+- Ajax
+
+# Important Links
+
+[Deployed API](https://lindsay-kaufman.github.io/game-project-client/)
 
 # Unsolved Problems
 
@@ -31,5 +36,5 @@ Eventually I would like to add:
 
 # Wireframes
 
-![Wireframe] file:///Users/lindsaykaufman/sei/projects/game-project-client/game-project-sign-up-wireframe.JPG "Logged Out Wireframe")
-![Wireframe] file:///Users/lindsaykaufman/sei/projects/game-project-client/game-project-signed-in-wireframe.JPG "Logged Out Wireframe")
+[Wireframe](https://imgur.com/a/8mnhZnF)
+[Wireframe](https://imgur.com/a/HOfEvTj)
