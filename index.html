@@ -15,15 +15,16 @@
 
 <body>
   <h1>TIC TAC TOE</h1>
+  <h6>(General Assembly Themed!)</h6>
 
   <br><br>
 
   <div class="containter justify-content-center" id="home-page-forms">
     <form class="input-group justify-content-center" id="sign-up">
       <fieldset>
-        <input class="credentials" name="credentials[email]" type="email" placeholder="Email" id="signup-email">
-        <input class="credentials" name="credentials[password]" type="password" placeholder="Password">
-        <input class="credentials" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+        <input class="credentials" name="credentials[email]" type="email" placeholder="Email" id="signup-email" required>
+        <input class="credentials" name="credentials[password]" type="password" placeholder="Password" required>
+        <input class="credentials" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" required>
         <input type="submit" class="btn btn-outline-danger" value="Sign Up!">
         <p id="signup-message"></p>
       </fieldset>
@@ -33,8 +34,8 @@
 
     <form class="input-group justify-content-center" id="sign-in">
       <fieldset>
-        <input class="credentials" name="credentials[email]" type="email" placeholder="Email">
-        <input class="credentials" name="credentials[password]" type="password" placeholder="Password">
+        <input class="credentials" name="credentials[email]" type="email" placeholder="Email" required>
+        <input class="credentials" name="credentials[password]" type="password" placeholder="Password" required>
         <input type="submit" class="btn btn-outline-danger" value="Sign In!">
       </fieldset>
     </form>
@@ -113,14 +114,15 @@
       </form>
     </div>
     <br><br>
+
     <div class="row justify-content-center">
       <form class="col-3 sign-out" id="sign-out">
-        <fieldset>
           <input class="btn btn-outline-danger" type="button" value="Sign Out">
-        </fieldset>
       </form>
+      <form class="col-3 password" id="password">
+       <input class="btn btn-outline-danger" type="button" value="Change Password">
+     </form>
     </div>
-
 
   </footer>
 

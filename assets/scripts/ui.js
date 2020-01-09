@@ -3,7 +3,7 @@
 const store = require('./store')
 
 const signUpSuccessful = function (response) {
-  console.log('Sign up successful')
+  // console.log('Sign up successful')
   console.log(response)
   $('#signup-message').hide()
   $('#sign-up').hide()
@@ -15,7 +15,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccessful = function (response) {
-  console.log('Sign in successful')
+  // console.log('Sign in successful')
   console.log(response)
 
   // store user token
@@ -23,7 +23,7 @@ const signInSuccessful = function (response) {
 
   $('#new-game').show()
   $('#get-games').show()
-  $('#change-password').show()
+  $('#password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -31,12 +31,12 @@ const signInSuccessful = function (response) {
 }
 
 const signInFailure = function (response) {
-  console.log('Sign in failed')
+  // console.log('Sign in failed')
   console.log(response)
 }
 
 const changePasswordSuccessful = function (response) {
-  console.log('Change password successful')
+  // console.log('Change password successful')
   console.log(response)
   $('#password-message').html('Your password has been changed!')
   $('#change-password').each(function () {
@@ -45,7 +45,7 @@ const changePasswordSuccessful = function (response) {
 }
 
 const changePasswordFailure = function (error) {
-  console.log('Change password failed')
+  // console.log('Change password failed')
   console.log(error)
   $('#password-message').html('Old password incorrect. Try again.')
   $('#change-password').each(function () {
@@ -54,7 +54,7 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccessful = function () {
-  console.log('Sign out successful')
+  // console.log('Sign out successful')
   $('#sign-in').each(function () {
     this.reset()
   })
@@ -72,12 +72,13 @@ const signOutSuccessful = function () {
   $('#sign-in').show()
   $('#current-player').hide()
   $('#message').hide()
+  $('#password').hide()
   $('#dark').hide()
   $('#light').hide()
 }
 
 const signOutFailure = function (error) {
-  console.log('Sign out failed')
+  // console.log('Sign out failed')
   console.log(error)
 }
 

@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'variables';
 
 html {
   margin: 20px;
@@ -15,40 +16,40 @@ body {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 500;
 
-  h1 {
+  h1,
+  h6 {
     text-align: center;
-    color: #DC3445;
+    color: $accent-color-red;
   }
 
   p {
-    color: #DC3445;
+    color: $accent-color-red;
   }
 }
-  section {
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-  }
 
-    #current-player {
-      font-size: 20px;
-    }
+section {
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
 
-    #message {
-      font-size: 20px;
-    }
+#current-player {
+  font-size: 20px;
+}
 
-    #game-status {
-      font-size: 25px;
-      text-align: center;
-    }
+#message {
+  font-size: 20px;
+}
 
-    #winner-alert {
-      font-size: 25px;
-      text-align: center;
-    }
+#game-status {
+  font-size: 25px;
+  text-align: center;
+}
 
-
+#winner-alert {
+  font-size: 25px;
+  text-align: center;
+}
 
 #game-board {
   align-items: center;
@@ -58,7 +59,7 @@ body {
 }
 
 .box {
-  border: 1px solid #000000;
+  border: 1px solid $accent-color-red;
   display: flex;
   height: 80px;
   justify-content: center;
@@ -90,10 +91,12 @@ footer {
 }
 
 .A {
-  color: #DC3445;
+  background-color: $accent-color-red-tint;
+  color: $accent-color-red;
 }
 
 .G {
+  background-color: $black-tint;
   color: black;
 }
 
@@ -101,7 +104,8 @@ footer {
   background-color: #A30A14;
   color: #FFFFFF;
 
-  h1 {
+  h1,
+  h6 {
     color: #000000;
   }
 
@@ -110,11 +114,16 @@ footer {
   }
 
   .A {
+    background-color: $red-tint-dark;
     color: #FFFFFF;
   }
 
+  .G {
+    background-color: $black-tint-dark;
+  }
+
   .box {
-    border: 1px solod #FFFFFF
+    border: 1px solod #FFFFFF;
   }
 
   #game-stats {
@@ -127,16 +136,23 @@ footer {
 .go-light {
   background-color: #FFFFFF;
 
-  h1 {
-    color: #DC3445;
+  h1,
+  h6 {
+    color: $accent-color-red;
   }
 
   p {
-    color: #DC3445;
+    color: $accent-color-red;
   }
 
   .A {
-    color: #DC3445;
+    background-color: $accent-color-red-tint;
+    color: $accent-color-red;
+  }
+
+  .G {
+    background-color: $black-tint;
+    color: black;
   }
 
   #current-player {
@@ -157,9 +173,7 @@ footer {
 
   #game-stats {
     background-color: #DFDFDF;
-    border: 1px solid #000000;
+    border: 1px solid $accent-color-red;
     color: #000000;
   }
-
-
 }

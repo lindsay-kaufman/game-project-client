@@ -1,0 +1,5 @@
+$accent-color-red: #dc3445;
+$accent-color-red-tint: scale-color($accent-color-red, $lightness: 95%);
+$black-tint: scale-color(black, $lightness: 95%);
+$black-tint-dark: scale-color(black, $lightness: 40%);
+$red-tint-dark: scale-color(#A30A14, $lightness: 40%);

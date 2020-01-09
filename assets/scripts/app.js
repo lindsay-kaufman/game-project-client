@@ -15,6 +15,7 @@ $(() => {
   $('#hide-games').hide()
   $('#game-board').hide()
   $('#change-password').hide()
+  $('#password').hide()
   $('#play-again').hide()
   $('#sign-out').hide()
   $('#dark').hide()

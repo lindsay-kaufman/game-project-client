@@ -10,7 +10,7 @@ const createGameSuccessful = function (board) {
   }
   $('#game-board').show()
   $('#new-game').html('New Game')
-  $('#current-player').show().html('Current Player: A')
+  $('#current-player').show().html('Current Player: G')
   $('#message').show().html('Click Any Space')
   $('#winner-alert').hide()
   $('#game-status').hide()
@@ -18,7 +18,7 @@ const createGameSuccessful = function (board) {
 }
 
 const createGameFailed = function (error) {
-  console.log('Error')
+  // console.log('Error')
   console.log(error)
 }
 
@@ -27,7 +27,7 @@ const createGameFailed = function (error) {
 // then updates the game board from the DOM
 // updates the game 'over' key
 const updateGameSuccessful = function (res, index, player) {
-  console.log(res)
+  // console.log(res)
   const space = $('#' + index) // = index
   // console.log('i is ', index)
   // console.log('value is ', player)
@@ -59,7 +59,7 @@ const getGamesSuccessful = function (history) {
 
 const getGamesFailed = function (error) {
   console.log(error)
-  console.log('Something went wrong here.')
+  // console.log('Something went wrong here.')
 }
 
 module.exports = {

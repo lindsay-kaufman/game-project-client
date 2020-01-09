@@ -1,6 +1,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const ui = require('./ui')
 const api = require('./api')
+const gameEvents = require('./gameboard/events')
 
 const onSignUp = function () {
   event.preventDefault()
@@ -24,6 +25,11 @@ const onSignIn = function () {
     .catch(ui.signInFailure)
 }
 
+const showChangePassword = function () {
+  $('#change-password').show()
+  $('#password').hide()
+}
+
 const onChangePassword = function () {
   event.preventDefault()
   const form = event.target
@@ -33,6 +39,8 @@ const onChangePassword = function () {
   api.changePassword(data)
     .then(ui.changePasswordSuccessful)
     .catch(ui.changePasswordFailure)
+
+  $('#password').show()
 }
 
 const onSignOut = function () {
@@ -46,8 +54,10 @@ const onSignOut = function () {
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
+  $('#password').on('click', showChangePassword)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
+  $('#sign-out').on('click', gameEvents.goLight)
 }
 
 module.exports = {

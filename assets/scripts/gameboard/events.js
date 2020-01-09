@@ -50,28 +50,28 @@ const hideGames = function () {
 const checkWinner = function () {
   // console.log(board)
   if (board[0] !== '' && board[0] === board[1] && board[1] === board[2]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[3] !== '' && board[3] === board[4] && board[4] === board[5]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[6] !== '' && board[6] === board[7] && board[7] === board[8]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[0] !== '' && board[0] === board[3] && board[3] === board[6]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[1] !== '' && board[1] === board[4] && board[4] === board[7]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[2] !== '' && board[2] === board[5] && board[5] === board[8]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[0] !== '' && board[0] === board[4] && board[4] === board[8]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   } else if (board[2] !== '' && board[2] === board[4] && board[4] === board[6]) {
-    console.log('Check winner working')
+    // console.log('Check winner working')
     return true
   }
   return false
@@ -95,14 +95,14 @@ const playGame = function (event) {
 
   // make sure space is valid
   if (board[space.id] !== '') {
-    console.log('ID: ' + space.id)
+    // console.log('ID: ' + space.id)
     return $('#message').html('Oops! That is not a space.')
   }
 
   // counts number of moves to check for draw
   moves++
-  console.log(moves)
-  console.log(checkWinner())
+  // console.log(moves)
+  // console.log(checkWinner())
 
   if (checkWinner() === false) {
     if (moves === 9) {
@@ -115,11 +115,11 @@ const playGame = function (event) {
   }
 
   if (player === true) {
-    spaceValue = 'A'
-    board[space.id] = 'A'
-    $('#current-player').text('Current Player: G')
+    spaceValue = 'G'
+    board[space.id] = 'G'
+    $('#current-player').text('Current Player: A')
     if (checkWinner() === true) {
-      $('#winner-alert').show().html('A Wins!')
+      $('#winner-alert').show().html('G Wins!')
       $('#current-player').hide()
       $('#new-game').html('Play Again')
       $('#message').hide()
@@ -127,12 +127,12 @@ const playGame = function (event) {
       gameOver = !gameOver
     }
   } else {
-    spaceValue = 'G'
-    board[space.id] = 'G'
-    $('#current-player').text('Current Player: A')
+    spaceValue = 'A'
+    board[space.id] = 'A'
+    $('#current-player').text('Current Player: G')
     if (checkWinner() === true) {
       gameOver = !gameOver
-      $('#winner-alert').show().html('G Wins!')
+      $('#winner-alert').show().html('A Wins!')
       $('#new-game').html('Play Again')
       $('#current-player').hide()
       $('#message').hide()
@@ -142,7 +142,7 @@ const playGame = function (event) {
 
   // toggle player and update game after each turn
   player = !player
-  console.log('Player: ' + player)
+  // console.log('Player: ' + player)
 
   // console.log(space.id)
   // console.log(spaceValue)
@@ -176,5 +176,6 @@ const addHandlers = function () {
 module.exports = {
   addHandlers,
   playGame,
-  checkWinner
+  checkWinner,
+  goLight
 }
