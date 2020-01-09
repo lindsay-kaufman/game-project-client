@@ -27,6 +27,7 @@ const signInSuccessful = function (response) {
   $('#sign-out').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#dark').show()
 }
 
 const signInFailure = function (response) {
@@ -57,6 +58,9 @@ const signOutSuccessful = function () {
   $('#sign-in').each(function () {
     this.reset()
   })
+  $('#sign-up').each(function () {
+    this.reset()
+  })
 
   $('#new-game').hide()
   $('#get-games').hide()
@@ -66,7 +70,12 @@ const signOutSuccessful = function () {
   $('#sign-out').hide()
   $('#sign-up').show()
   $('#sign-in').show()
+  $('#current-player').hide()
+  $('#message').hide()
+  $('#dark').hide()
+  $('#light').hide()
 }
+
 const signOutFailure = function (error) {
   console.log('Sign out failed')
   console.log(error)

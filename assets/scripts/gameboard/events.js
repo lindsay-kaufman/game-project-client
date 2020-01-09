@@ -12,13 +12,6 @@ let gameOver = false
 let board = ['', '', '', '', '', '', '', '', '']
 let moves = 0
 
-// counts number of moves to check for draw
-const moveCount = function () {
-  moves++
-  console.log('Moves: ' + moves)
-  return moves
-}
-
 const newGame = function (event) {
   event.preventDefault()
   api.createGameObject()
@@ -81,6 +74,7 @@ const checkWinner = function () {
     console.log('Check winner working')
     return true
   }
+  return false
 }
 
 // playGame function:
@@ -96,65 +90,87 @@ const playGame = function (event) {
 
   // make sure game is not over
   if (gameOver === true) {
-    return $('#game-status').html('Game Over!')
+    return $('#game-status').show().html('Game Over!')
   }
 
   // make sure space is valid
   if (board[space.id] !== '') {
     console.log('ID: ' + space.id)
-    return $('#message').html('Oops! That is not a valid move.')
+    return $('#message').html('Oops! That is not a space.')
   }
 
-  if (!checkWinner()) {
+  // counts number of moves to check for draw
+  moves++
+  console.log(moves)
+  console.log(checkWinner())
+
+  if (checkWinner() === false) {
     if (moves === 9) {
       $('#game-status').show().html('Tie Game!')
       $('#message').hide()
       $('#current-player').hide()
-      $('#play-again').show()
-      console.log('Draw')
+      $('#new-game').html('Play Again')
+      // console.log('Draw')
     }
   }
 
   if (player === true) {
-    spaceValue = 'X'
-    board[space.id] = 'X'
-    $('#current-player').text('Current Player: O')
+    spaceValue = 'A'
+    board[space.id] = 'A'
+    $('#current-player').text('Current Player: G')
     if (checkWinner() === true) {
-      $('#winner-alert').show().html('X Is The Winner!')
+      $('#winner-alert').show().html('A Wins!')
       $('#current-player').hide()
-      $('#play-again').show()
+      $('#new-game').html('Play Again')
       $('#message').hide()
+      $('#game-status').hide()
       gameOver = !gameOver
     }
   } else {
-    spaceValue = 'O'
-    board[space.id] = 'O'
-    $('#current-player').text('Current Player: X')
+    spaceValue = 'G'
+    board[space.id] = 'G'
+    $('#current-player').text('Current Player: A')
     if (checkWinner() === true) {
       gameOver = !gameOver
-      $('#winner-alert').show().html('O Is The Winner!')
-      $('#play-again').show()
+      $('#winner-alert').show().html('G Wins!')
+      $('#new-game').html('Play Again')
       $('#current-player').hide()
       $('#message').hide()
+      $('#game-status').hide()
     }
   }
 
   // toggle player and update game after each turn
   player = !player
+  console.log('Player: ' + player)
 
-  // console.log(player)
   // console.log(space.id)
   // console.log(spaceValue)
   // console.log(gameOver)
   updateGame(space.id, spaceValue, gameOver)
 }
 
+const goDark = function () {
+  $('body').removeClass('go-light')
+  $('body').addClass('go-dark')
+  $('#light').show()
+  $('#dark').hide()
+}
+
+const goLight = function () {
+  $('body').removeClass('go-light')
+  $('body').addClass('go-light')
+  $('#dark').show()
+  $('#light').hide()
+}
+
 const addHandlers = function () {
-  $('#game-board').on('click', moveCount)
   $('#game-board').on('click', playGame)
   $('#new-game').on('click', newGame)
   $('#get-games').on('click', getGames)
   $('#hide-games').on('click', hideGames)
+  $('#dark').on('click', goDark)
+  $('#light').on('click', goLight)
 }
 
 module.exports = {

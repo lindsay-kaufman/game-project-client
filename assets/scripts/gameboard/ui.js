@@ -3,16 +3,15 @@
 const store = require('./../store')
 
 const createGameSuccessful = function (board) {
-  // console.log('Game created')
   store.game = board.game
   for (let i = 0; i < board.game.cells.length; i++) {
     const space = $('#' + i) // = 0
-    space.html('')
+    space.html('').removeClass('A').removeClass('G')
   }
   $('#game-board').show()
-  $('#play-again').hide()
-  $('#current-player').show().html('Current Player: X')
-  $('#message').show().html('Click Any Space') // BUG not showing after there is a winner
+  $('#new-game').html('New Game')
+  $('#current-player').show().html('Current Player: A')
+  $('#message').show().html('Click Any Space')
   $('#winner-alert').hide()
   $('#game-status').hide()
   $('#password-message').hide()
@@ -30,10 +29,10 @@ const createGameFailed = function (error) {
 const updateGameSuccessful = function (res, index, player) {
   console.log(res)
   const space = $('#' + index) // = index
-  console.log('i is ', index)
-  console.log('value is ', player)
+  // console.log('i is ', index)
+  // console.log('value is ', player)
   $('#message').html('Nice Move ' + player + '!')
-  space.html(player)
+  space.html(player).addClass(player)
 }
 
 const updateGameFailed = function (error) {

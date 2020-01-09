@@ -14,40 +14,47 @@
 </head>
 
 <body>
-  <h1>Tic Tac Toe</h1>
+  <h1>TIC TAC TOE</h1>
 
   <br><br>
 
+  <div class="containter justify-content-center" id="home-page-forms">
+    <form class="input-group justify-content-center" id="sign-up">
+      <fieldset>
+        <input class="credentials" name="credentials[email]" type="email" placeholder="Email" id="signup-email">
+        <input class="credentials" name="credentials[password]" type="password" placeholder="Password">
+        <input class="credentials" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+        <input type="submit" class="btn btn-outline-danger" value="Sign Up!">
+        <p id="signup-message"></p>
+      </fieldset>
+    </form>
 
-  <form class="input-group justify-content-center" id="sign-up">
-    <fieldset>
-      <input name="credentials[email]" type="email" placeholder="Email" id="signup-email">
-      <input name="credentials[password]" type="password" placeholder="Password">
-      <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-      <input type="submit" class="btn btn-outline-secondary" value="Sign Up!">
-      <p id="signup-message"></p>
-    </fieldset>
-  </form>
-  <br><br>
-  <form class="input-group justify-content-center" id="sign-in">
-    <fieldset>
-      <input name="credentials[email]" type="email" placeholder="Email">
-      <input name="credentials[password]" type="password" placeholder="Password">
-      <input type="submit" class="btn btn-outline-secondary" value="Sign In!">
-    </fieldset>
-  </form>
+    <br><br>
 
+    <form class="input-group justify-content-center" id="sign-in">
+      <fieldset>
+        <input class="credentials" name="credentials[email]" type="email" placeholder="Email">
+        <input class="credentials" name="credentials[password]" type="password" placeholder="Password">
+        <input type="submit" class="btn btn-outline-danger" value="Sign In!">
+      </fieldset>
+    </form>
+  </div>
+
+  <section class="container justify-content-center">
+    <div class="row justify-content-center">
+      <div class="col-12 float-center" id="game-status"></div>
+      <div class="col-12 float-center" id="winner-alert"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 float-left" id="current-player"></div>
+      <div class="col-6 float-right" id="message"></div>
+    </div>
+  </section>
 
   <br><br>
 
   <div class="container justify-content-center" id="game-board">
-    <div class="row">
-      <div class="col-5 float-left" id="current-player"></div>
-      <div class="col-5" id="game-status"></div>
-      <div class="col-5" id="winner-alert"></div>
-      <div class="col-5 float-right" id="message"></div>
-      <br><br>
-    </div>
 
     <div class="row" id="board-spaces">
       <div class="col-4 border-top-0 border-left-0 box space" id="0"></div>
@@ -62,46 +69,59 @@
       <div class="col-4 border-bottom-0 box space" id="7"></div>
       <div class="col-4 border-bottom-0 border-right-0 box space" id="8"></div>
     </div>
+    <br><br>
   </div>
 
   <div data-cell-index="index"></div>
 
-  <br><br>
+  <div class="container justify-content-center" id="signed-in-forms">
+    <div class="row">
 
-  <div>
-    <button class="btn btn-outline-secondary justify-content-center" id="new-game" type="button">New Game</button>
-    <p id="play-again">Want to play again?</p>
-  </div>
+      <div class="col-4 justify-content-center">
+        <button class="btn btn-outline-danger" id="new-game" type="button">New Game</button>
+      </div>
 
-  <br><br>
+      <div class="col-4 justify-content-center">
+        <input type="button" class="btn btn-outline-danger go-light" value="Light Mode" id="light">
+        <input type="button" class="btn btn-outline-danger go-dark" value="Dark Mode" id="dark">
+      </div>
 
-  <div>
-    <button class="btn btn-outline-secondary justify-content-center" id="get-games" type="button">View Your Games</button>
-    <button class="btn btn-outline-secondary justify-content-center" id="hide-games" type="button">Hide Your Games</button>
-  </div>
+      <div class="col-4 justify-content-center">
+        <button class="btn btn-outline-danger" id="get-games" type="button">View Your Games</button>
+        <button class="btn btn-outline-danger" id="hide-games" type="button">Hide Your Games</button>
+      </div>
 
-  <br><br><br>
-
-  <ul id="game-stats"></ul>
-
-
-  <footer>
-    <form class="container justify-content-center" id="change-password">
-      <fieldset class="change-password">
-        <input name="passwords[old]" type="password" placeholder="Old Password">
-        <input name="passwords[new]" type="password" placeholder="New Password">
-        <input class="btn btn-outline-secondary" type="submit" value="Change Password">
-        <p id="password-message"></p>
-      </fieldset>
-    </form>
+    </div>
 
     <br><br><br>
 
-    <form class="container justify-content-center" id="sign-out">
-      <fieldset>
-        <input class="btn btn-outline-secondary justify-content-center" type="button" value="Sign Out">
-      </fieldset>
-    </form>
+    <div class="row justify-content-center">
+      <ul id="game-stats"></ul>
+    </div>
+  </div>
+
+
+
+  <footer class="container justify-content-center">
+    <div class="row">
+      <form class="col-12 change-password" id="change-password">
+        <fieldset class="change-password">
+          <input class="credentials" name="passwords[old]" type="password" placeholder="Old Password" required>
+          <input class="credentials" name="passwords[new]" type="password" placeholder="New Password" required>
+          <input class="btn btn-outline-danger" type="submit" value="Change Password">
+        </fieldset>
+      </form>
+    </div>
+    <br><br>
+    <div class="row justify-content-center">
+      <form class="col-3 sign-out" id="sign-out">
+        <fieldset>
+          <input class="btn btn-outline-danger" type="button" value="Sign Out">
+        </fieldset>
+      </form>
+    </div>
+
+
   </footer>
 
 </body>

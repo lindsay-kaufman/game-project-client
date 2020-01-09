@@ -1,25 +1,165 @@
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-  text-align: center;
-}
-
-legend {
-  text-align: center;
-  font-size: 20px;
-}
-
-.change-password {
+html {
+  margin: 20px;
+  min-height: 700px;
   justify-content: center;
+}
+
+body {
+  align-items: center;
+  height: 600px;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+
+  h1 {
+    text-align: center;
+    color: #DC3445;
+  }
+
+  p {
+    color: #DC3445;
+  }
+}
+  section {
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+    #current-player {
+      font-size: 20px;
+    }
+
+    #message {
+      font-size: 20px;
+    }
+
+    #game-status {
+      font-size: 25px;
+      text-align: center;
+    }
+
+    #winner-alert {
+      font-size: 25px;
+      text-align: center;
+    }
+
+
+
+#game-board {
+  align-items: center;
+  margin: auto;
+  padding: 25px;
+  width: 70%;
 }
 
 .box {
   border: 1px solid #000000;
-  background-color: #ffffff;
-  color: #000000;
   display: flex;
   height: 80px;
   justify-content: center;
   text-align: center;
   font-size: 50px;
+}
+
+#signed-in-forms {
+  align-items: center;
+  text-align: center;
+}
+
+#game-stats {
+  background-color: #DFDFDF;
+  border: 1px solid #000000;
+  text-align: left;
+  max-height: 200px;
+  max-width: 600px;
+  overflow: scroll;
+}
+
+#change-password {
+  align-items: center;
+  text-align: center;
+}
+
+footer {
+  padding: 15px;
+}
+
+.A {
+  color: #DC3445;
+}
+
+.G {
+  color: black;
+}
+
+.go-dark {
+  background-color: #A30A14;
+  color: #FFFFFF;
+
+  h1 {
+    color: #000000;
+  }
+
+  p {
+    color: #000000;
+  }
+
+  .A {
+    color: #FFFFFF;
+  }
+
+  .box {
+    border: 1px solod #FFFFFF
+  }
+
+  #game-stats {
+    background-color: #83878D;
+    border: 1px solid #000000;
+    color: #000000;
+  }
+}
+
+.go-light {
+  background-color: #FFFFFF;
+
+  h1 {
+    color: #DC3445;
+  }
+
+  p {
+    color: #DC3445;
+  }
+
+  .A {
+    color: #DC3445;
+  }
+
+  #current-player {
+    color: #000000;
+  }
+
+  #message {
+    color: #000000;
+  }
+
+  #game-status {
+    color: #000000;
+  }
+
+  #winner-alert {
+    color: #000000;
+  }
+
+  #game-stats {
+    background-color: #DFDFDF;
+    border: 1px solid #000000;
+    color: #000000;
+  }
+
+
 }
