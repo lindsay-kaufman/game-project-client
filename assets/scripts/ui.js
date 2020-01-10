@@ -32,22 +32,23 @@ const signInSuccessful = function (response) {
 
 const signInFailure = function (response) {
   // console.log('Sign in failed')
-  console.log(response)
+  // console.log(response)
+  $('#signin-message').html('Oops! Try again.')
 }
 
 const changePasswordSuccessful = function (response) {
   // console.log('Change password successful')
-  console.log(response)
-  $('#password-message').html('Your password has been changed!')
   $('#change-password').each(function () {
     this.reset()
   })
+  $('#change-password').hide()
+  $('#password').show()
 }
 
 const changePasswordFailure = function (error) {
   // console.log('Change password failed')
   console.log(error)
-  $('#password-message').html('Old password incorrect. Try again.')
+  $('.password-message').show().html('Woops! Try again.')
   $('#change-password').each(function () {
     this.reset()
   })
