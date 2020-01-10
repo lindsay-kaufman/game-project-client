@@ -39,8 +39,6 @@ const onChangePassword = function () {
   api.changePassword(data)
     .then(ui.changePasswordSuccessful)
     .catch(ui.changePasswordFailure)
-
-  $('#password').show()
 }
 
 const onSignOut = function () {
