@@ -46,7 +46,7 @@ const onSignOut = function () {
 
   api.signOut()
     .then(ui.signOutSuccessful)
-    .catch(ui.signOutFailure)
+    // .catch(ui.signOutFailure)
 }
 
 const addHandlers = function () {

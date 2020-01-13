@@ -48,30 +48,30 @@ const hideGames = function () {
 }
 
 const checkWinner = function () {
-  // console.log(board)
+  // // console(board)
   if (board[0] !== '' && board[0] === board[1] && board[1] === board[2]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[3] !== '' && board[3] === board[4] && board[4] === board[5]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[6] !== '' && board[6] === board[7] && board[7] === board[8]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[0] !== '' && board[0] === board[3] && board[3] === board[6]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[1] !== '' && board[1] === board[4] && board[4] === board[7]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[2] !== '' && board[2] === board[5] && board[5] === board[8]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[0] !== '' && board[0] === board[4] && board[4] === board[8]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   } else if (board[2] !== '' && board[2] === board[4] && board[4] === board[6]) {
-    // console.log('Check winner working')
+    // // console('Check winner working')
     return true
   }
   return false
@@ -95,22 +95,22 @@ const playGame = function (event) {
 
   // make sure space is valid
   if (board[space.id] !== '') {
-    // console.log('ID: ' + space.id)
+    // // console('ID: ' + space.id)
     return $('#message').html('Oops! That is not a space.')
   }
 
   // counts number of moves to check for draw
   moves++
-  // console.log(moves)
-  // console.log(checkWinner())
+  // // console(moves)
+  // // console(checkWinner())
 
   if (checkWinner() === false) {
     if (moves === 9) {
       $('#game-status').show().html('Tie Game!')
       $('#message').hide()
       $('#current-player').hide()
-      $('#new-game').html('Play Again')
-      // console.log('Draw')
+      $('#new-game').html('Play Again?')
+      // // console('Draw')
     }
   }
 
@@ -121,7 +121,7 @@ const playGame = function (event) {
     if (checkWinner() === true) {
       $('#winner-alert').show().html('G Wins!')
       $('#current-player').hide()
-      $('#new-game').html('Play Again')
+      $('#new-game').html('Play Again?')
       $('#message').hide()
       $('#game-status').hide()
       gameOver = !gameOver
@@ -133,7 +133,7 @@ const playGame = function (event) {
     if (checkWinner() === true) {
       gameOver = !gameOver
       $('#winner-alert').show().html('A Wins!')
-      $('#new-game').html('Play Again')
+      $('#new-game').html('Play Again?')
       $('#current-player').hide()
       $('#message').hide()
       $('#game-status').hide()
@@ -142,11 +142,11 @@ const playGame = function (event) {
 
   // toggle player and update game after each turn
   player = !player
-  // console.log('Player: ' + player)
+  // // console('Player: ' + player)
 
-  // console.log(space.id)
-  // console.log(spaceValue)
-  // console.log(gameOver)
+  // // console(space.id)
+  // // console(spaceValue)
+  // // console(gameOver)
   updateGame(space.id, spaceValue, gameOver)
 }
 

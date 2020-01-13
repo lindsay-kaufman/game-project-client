@@ -3,51 +3,60 @@
 const store = require('./store')
 
 const signUpSuccessful = function (response) {
-  // console.log('Sign up successful')
-  console.log(response)
+  // // console('Sign up successful')
+  // // console(response)
   $('#signup-message').hide()
   $('#sign-up').hide()
 }
 
-const signUpFailure = function (error) {
-  console.log(error)
-  $('#signup-message').html('Oops! Try again.')
+const signUpFailure = function () {
+  // console(error)
+  $('#signup-message').show().html('Oops! Try again.')
+  $('#sign-up').each(function () {
+    this.reset()
+  })
 }
 
 const signInSuccessful = function (response) {
-  // console.log('Sign in successful')
-  console.log(response)
+  // // console('Sign in successful')
+  // // console(response)
 
   // store user token
   store.user = response.user
 
-  $('#new-game').show()
+  $('#new-game').show().html('New Game')
   $('#get-games').show()
   $('#password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#dark').show()
+  $('#signin-message').hide()
+  $('#signup-message').hide()
 }
 
 const signInFailure = function (response) {
-  // console.log('Sign in failed')
-  // console.log(response)
-  $('#signin-message').html('Oops! Try again.')
+  // // console('Sign in failed')
+  // // console(response)
+  $('#signin-message').show().html('Oops! Try again.')
+  $('#sign-in').each(function () {
+    this.reset()
+  })
 }
 
 const changePasswordSuccessful = function (response) {
-  // console.log('Change password successful')
+  // // console('Change password successful')
   $('#change-password').each(function () {
     this.reset()
   })
   $('#change-password').hide()
   $('#password').show()
+  $('#password-message').hide()
 }
 
-const changePasswordFailure = function (error) {
-  // console.log('Change password failed')
-  console.log(error)
+const changePasswordFailure = function () {
+  // // console('Change password failed')
+  // console(error)
   $('.password-message').show().html('Woops! Try again.')
   $('#change-password').each(function () {
     this.reset()
@@ -55,7 +64,7 @@ const changePasswordFailure = function (error) {
 }
 
 const signOutSuccessful = function () {
-  // console.log('Sign out successful')
+  // // console('Sign out successful')
   $('#sign-in').each(function () {
     this.reset()
   })
@@ -76,12 +85,15 @@ const signOutSuccessful = function () {
   $('#password').hide()
   $('#dark').hide()
   $('#light').hide()
+  $('#signin-message').hide()
+  $('#winner-alert').hide()
+  $('#game-status').hide()
 }
 
-const signOutFailure = function (error) {
-  // console.log('Sign out failed')
-  console.log(error)
-}
+// const signOutFailure = function () {
+//   // // console('Sign out failed')
+//   // console(error)
+// }
 
 module.exports = {
   signUpSuccessful,
@@ -90,6 +102,6 @@ module.exports = {
   signInFailure,
   changePasswordSuccessful,
   changePasswordFailure,
-  signOutSuccessful,
-  signOutFailure
+  signOutSuccessful
+  // signOutFailure
 }

@@ -18,8 +18,8 @@ const createGameSuccessful = function (board) {
 }
 
 const createGameFailed = function (error) {
-  // console.log('Error')
-  console.log(error)
+  // // console('Error')
+  // console(error)
 }
 
 // updateGameSuccessful function:
@@ -27,16 +27,16 @@ const createGameFailed = function (error) {
 // then updates the game board from the DOM
 // updates the game 'over' key
 const updateGameSuccessful = function (res, index, player) {
-  // console.log(res)
+  // // console(res)
   const space = $('#' + index) // = index
-  // console.log('i is ', index)
-  // console.log('value is ', player)
+  // // console('i is ', index)
+  // // console('value is ', player)
   $('#message').html('Nice Move ' + player + '!')
   space.html(player).addClass(player)
 }
 
 const updateGameFailed = function (error) {
-  console.log(error)
+  // console(error)
 }
 
 const getGamesSuccessful = function (history) {
@@ -58,8 +58,8 @@ const getGamesSuccessful = function (history) {
 }
 
 const getGamesFailed = function (error) {
-  console.log(error)
-  // console.log('Something went wrong here.')
+  // console(error)
+  // // console('Something went wrong here.')
 }
 
 module.exports = {
