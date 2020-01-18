@@ -96,6 +96,11 @@ footer {
   color: black;
 }
 
+.btn-outline-danger {
+  background-color: #FFFFFF;
+  color: $accent-color-red;
+}
+
 .go-dark {
   background-color: #A30A14;
   color: #FFFFFF;
@@ -120,12 +125,21 @@ footer {
   }
 
   .btn-outline-danger {
-    border-color: #FFFFFF;
+    background-color: #A30A14;
     color: #FFFFFF;
   }
 
+  .btn-outline-danger:hover {
+    background-color: $accent-color-red
+  }
+
   .go-light {
-    background-color: $red-tint-dark
+    background-color: #FFFFFF;
+    color: #A30A14;
+  }
+
+  .go-light:hover {
+    color: #FFFFFF;
   }
 
   #game-stats {
@@ -142,18 +156,14 @@ footer {
     color: #FFFFFF;
   }
 
-  // light mode button
-
 }
 
 .go-light {
   background-color: #FFFFFF;
+  color: $red-tint-dark;
 
   h1,
-  h6 {
-    color: $accent-color-red;
-  }
-
+  h6,
   p {
     color: $accent-color-red;
   }
@@ -168,25 +178,37 @@ footer {
     color: black;
   }
 
-  #current-player {
-    color: #000000;
+  .space {
+    border: 1px solid $red-tint-dark;
   }
 
-  #message {
-    color: #000000;
+  .btn-outline-danger {
+    background-color: #FFFFFF;
+    color: $red-tint-dark;
   }
 
-  #game-status {
-    color: #000000;
+  .btn-outline-danger:hover {
+    background-color: $accent-color-red;
+    color: #FFFFFF;
   }
 
+  .go-dark {
+    background-color: $accent-color-red;
+    color: #FFFFFF;
+  }
+
+  #current-player,
+  #message,
+  #game-status,
   #winner-alert {
-    color: #000000;
+    color: $accent-color-red;
   }
+
 
   #game-stats {
     background-color: #DFDFDF;
-    border: 1px solid $accent-color-red;
+    border: 1px solid #000000;
     color: #000000;
+    font-weight: 500;
   }
 }

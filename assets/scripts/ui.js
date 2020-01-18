@@ -88,6 +88,7 @@ const signOutSuccessful = function () {
   $('#signin-message').hide()
   $('#winner-alert').hide()
   $('#game-status').hide()
+  $('#hide-games').hide()
 }
 
 // const signOutFailure = function () {

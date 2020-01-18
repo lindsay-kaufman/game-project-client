@@ -89,14 +89,14 @@ const playGame = function (event) {
   // counts number of moves to check for draw
   moves++
 
-  if (checkWinner() === false) {
-    if (moves === 9) {
-      $('#game-status').show().html('Tie Game!')
-      $('#message').hide()
-      $('#current-player').hide()
-      $('#new-game').html('Play Again?')
-      // // console('Draw')
-    }
+  if (moves === 9 && checkWinner() === false) {
+    $('#game-status').show().html('Tie Game!')
+    $('#message').hide()
+    $('#current-player').hide()
+    $('#new-game').html('Play Again?')
+    // console.log('Draw')
+    // console.log(moves)
+  // console.log('Check winner: ' + checkWinner())
   }
 
   if (player === true) {
