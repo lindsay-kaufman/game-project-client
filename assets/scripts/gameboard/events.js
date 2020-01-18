@@ -1,8 +1,4 @@
 'use strict'
-//
-// TO DO:
-// -need to hide new game button until user is signed in
-// -BUG: clicking on a container div not on the board returns an error message
 
 const api = require('./../api')
 const ui = require('./ui')
@@ -48,30 +44,21 @@ const hideGames = function () {
 }
 
 const checkWinner = function () {
-  // // console(board)
   if (board[0] !== '' && board[0] === board[1] && board[1] === board[2]) {
-    // // console('Check winner working')
     return true
   } else if (board[3] !== '' && board[3] === board[4] && board[4] === board[5]) {
-    // // console('Check winner working')
     return true
   } else if (board[6] !== '' && board[6] === board[7] && board[7] === board[8]) {
-    // // console('Check winner working')
     return true
   } else if (board[0] !== '' && board[0] === board[3] && board[3] === board[6]) {
-    // // console('Check winner working')
     return true
   } else if (board[1] !== '' && board[1] === board[4] && board[4] === board[7]) {
-    // // console('Check winner working')
     return true
   } else if (board[2] !== '' && board[2] === board[5] && board[5] === board[8]) {
-    // // console('Check winner working')
     return true
   } else if (board[0] !== '' && board[0] === board[4] && board[4] === board[8]) {
-    // // console('Check winner working')
     return true
   } else if (board[2] !== '' && board[2] === board[4] && board[4] === board[6]) {
-    // // console('Check winner working')
     return true
   }
   return false
@@ -88,7 +75,7 @@ const playGame = function (event) {
   const space = event.target
   let spaceValue
 
-  // make sure game is not over
+  // make sure game is not over before clicking a space
   if (gameOver === true) {
     return $('#game-status').show().html('Game Over!')
   }
@@ -101,8 +88,6 @@ const playGame = function (event) {
 
   // counts number of moves to check for draw
   moves++
-  // // console(moves)
-  // // console(checkWinner())
 
   if (checkWinner() === false) {
     if (moves === 9) {
@@ -119,7 +104,7 @@ const playGame = function (event) {
     board[space.id] = 'G'
     $('#current-player').text('Current Player: A')
     if (checkWinner() === true) {
-      $('#winner-alert').show().html('G Wins!')
+      $('#winner-alert').show().html('G is the winner!')
       $('#current-player').hide()
       $('#new-game').html('Play Again?')
       $('#message').hide()
@@ -131,22 +116,18 @@ const playGame = function (event) {
     board[space.id] = 'A'
     $('#current-player').text('Current Player: G')
     if (checkWinner() === true) {
-      gameOver = !gameOver
-      $('#winner-alert').show().html('A Wins!')
+      $('#winner-alert').show().html('A is the winner!')
       $('#new-game').html('Play Again?')
       $('#current-player').hide()
       $('#message').hide()
       $('#game-status').hide()
+      gameOver = !gameOver
     }
   }
 
   // toggle player and update game after each turn
   player = !player
-  // // console('Player: ' + player)
 
-  // // console(space.id)
-  // // console(spaceValue)
-  // // console(gameOver)
   updateGame(space.id, spaceValue, gameOver)
 }
 
