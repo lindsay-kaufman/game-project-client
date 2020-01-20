@@ -29,11 +29,10 @@ In planning this application, I first created some basic wireframes and wrote mu
 
 # Unsolved Problems
 
-Eventually I would like to add:
--The option to play against a computer at easy, medium and hard levels.
+Eventually I would like to add the option to play against a computer at easy, medium and hard levels.
 
 
 # Wireframes
 
-![Wireframe](https://imgur.com/a/8mnhZnF)
-![Wireframe](https://imgur.com/a/HOfEvTj)
+- [Wireframe 1](https://imgur.com/a/8mnhZnF)
+- [Wireframe 2](https://imgur.com/a/HOfEvTj)
