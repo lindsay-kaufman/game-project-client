@@ -68,9 +68,9 @@ const checkWinner = function () {
 // * determins if game is over and stops game board from changing if game is over
 // * stops user from clicking on invalid space
 // * checks for winner or draw
-// * lets player know who's turn it is, toggles player
+// * toggles player
 // * lets player know who winner is
-// * passes arguments into updateGame function and updates game object in server
+// * passes arguments into updateGame function
 const playGame = function (event) {
   const space = event.target
   let spaceValue
@@ -96,7 +96,6 @@ const playGame = function (event) {
     $('#new-game').html('Play Again?')
     // console.log('Draw')
     // console.log(moves)
-  // console.log('Check winner: ' + checkWinner())
   }
 
   if (player === true) {

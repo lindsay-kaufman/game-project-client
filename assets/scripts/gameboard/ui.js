@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('./../store')
-// const winner = require('./events')
 
 const createGameSuccessful = function (board) {
   store.game = board.game
@@ -22,9 +21,9 @@ const createGameFailed = function () {
   $('#message').show().html('There was a problem.')
 }
 
-// updateGameSuccessful function:
+// updateGameSuccessful function
 // updates the game object 'cells'
-// then updates the game board from the DOM
+// updates game board
 // updates the game 'over' key
 const updateGameSuccessful = function (res, index, player) {
   // console(res)

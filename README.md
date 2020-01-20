@@ -31,10 +31,9 @@ In planning this application, I first created some basic wireframes and wrote mu
 
 Eventually I would like to add:
 -The option to play against a computer at easy, medium and hard levels.
--Optional color themes
 
 
 # Wireframes
 
-[Wireframe](https://imgur.com/a/8mnhZnF)
-[Wireframe](https://imgur.com/a/HOfEvTj)
+![Wireframe](https://imgur.com/a/8mnhZnF)
+![Wireframe](https://imgur.com/a/HOfEvTj)
