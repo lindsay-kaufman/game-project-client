@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>TIC TAC TOE</h1>
+  <h6>(General Assembly Themed!)</h6>
+
+  <br><br>
+
+  <div class="containter justify-content-center" id="home-page-forms">
+    <div class="row">
+      <form class="input-group justify-content-center" id="sign-up">
+        <fieldset>
+          <input class="col-8 col-lg-3 mb-2 credentials" name="credentials[email]" type="email" placeholder="Email" id="signup-email" required>
+          <input class="col-8 col-lg-3 mb-2 credentials" name="credentials[password]" type="password" placeholder="Password" required>
+          <input class="col-8 col-lg-3 mb-2 credentials" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password" required>
+          <input type="submit" class="col-6 col-lg-2 btn btn-outline-danger" value="Sign Up!">
+          <p id="signup-message"></p>
+        </fieldset>
+      </form>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+      <form class="input-group justify-content-center" id="sign-in">
+        <fieldset>
+          <input class="col-8 col-lg-4 mb-2 credentials" name="credentials[email]" type="email" placeholder="Email" required>
+          <input class="col-8 col-lg-4 mb-2 credentials" name="credentials[password]" type="password" placeholder="Password" required>
+          <input type="submit" class="col-6 col-lg-2 btn btn-outline-danger" value="Sign In!">
+          <p id="signin-message"></p>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+
+  <section class="container justify-content-center">
+    <div class="row justify-content-center">
+      <div class="col-12 float-center" id="game-status"></div>
+      <div class="col-12 float-center" id="winner-alert"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-lg-6 float-left" id="current-player"></div>
+      <div class="col-12 col-lg-6 float-right" id="message"></div>
+    </div>
+  </section>
+
+  <br><br>
+
+  <div class="container justify-content-center" id="game-board">
+
+    <div class="row" id="board-spaces">
+      <div class="col-4 border-top-0 border-left-0  space" id="0"></div>
+      <div class="col-4 border-top-0  space" id="1"></div>
+      <div class="col-4 border-top-0 border-right-0  space" id="2"></div>
+
+      <div class="col-4 border-left-0  space" id="3"></div>
+      <div class="col-4  space" id="4"></div>
+      <div class="col-4 border-right-0  space" id="5"></div>
+
+      <div class="col-4 border-bottom-0 border-left-0 space" id="6"></div>
+      <div class="col-4 border-bottom-0  space" id="7"></div>
+      <div class="col-4 border-bottom-0 border-right-0  space" id="8"></div>
+    </div>
+    <br><br>
+  </div>
+
+  <div data-cell-index="index"></div>
+
+  <div class="container justify-content-center" style="height: 150px" id="signed-in-forms">
+    <div class="row">
+
+      <div class="col-12 col-lg-4 mb-2 justify-content-center">
+        <button class="btn btn-outline-danger" id="new-game" type="button">New Game</button>
+      </div>
+
+      <div class="col-12 col-lg-4 mb-2 justify-content-center">
+        <input type="button" class="btn btn-outline-danger go-light" value="Light Mode" id="light">
+        <input type="button" class="btn btn-outline-danger go-dark" value="Dark Mode" id="dark">
+      </div>
+
+      <div class="col-12 col-lg-4 mb-2 justify-content-center">
+        <button class="btn btn-outline-danger" id="get-games" type="button">View Your Games</button>
+        <button class="btn btn-outline-danger" id="hide-games" type="button">Hide Your Games</button>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+  <div class="container justify-content-center">
+    <div class="row  justify-content-center">
+      <div class="col-12 col-lg-6">
+        <ul id="game-stats"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+  <footer class="container justify-content-center" style="height: 150px">
+    <div class="row">
+      <form class="col-12 mb-2 change-password" id="change-password">
+        <fieldset class="change-password">
+          <input class="credentials" name="passwords[old]" type="password" placeholder="Old Password" required>
+          <input class="credentials" name="passwords[new]" type="password" placeholder="New Password" required>
+          <input class="btn btn-outline-danger" type="submit" value="Change Password">
+          <p class="password-message"></p>
+        </fieldset>
+      </form>
+    </div>
+    <br><br>
+
+    <div class="row justify-content-center">
+      <form class="col-12 col-lg-4 mb-2 sign-out" id="sign-out">
+        <input class="btn btn-outline-danger" type="button" value="Sign Out">
+      </form>
+      <form class="col-12 col-lg-4 mb-2 password" id="password">
+        <input class="btn btn-outline-danger" type="button" value="Change Password">
+      </form>
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
